@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen Aleatoriamente</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Degradado de fondo suave */
+        }
+
+        #image-container {
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #4a90e2; /* Borde alrededor del contenedor de imágenes */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espaciado interno */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra del contenedor */
+            background-color: white; /* Fondo blanco para el contenedor */
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px; /* Bordes redondeados para la imagen */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el ratón sobre la imagen */
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4a90e2; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+            transition: background 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+        }
+
+        button:hover {
+            background-color: #357abd; /* Color de fondo más oscuro al hacer hover */
+            transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image-container">
+        <img id="image" src="https://via.placeholder.com/300x200.png?text=Imagen+1" alt="Imagen" />
+    </div>
+
+    <div style="text-align: center;">
+        <button id="changeImageBtn">Cambiar Imagen</button>
+    </div>
+
+    <script>
+        // Lista de URLs de imágenes
+        const imageUrls = [
+        'imagen1.jpg',
+        'imagen2.jpg',
+        'imagen3.jpg',
+        'imagen4.jpg'
+        ];
+
+        document.getElementById('changeImageBtn').addEventListener('click', function() {
+            const imageElement = document.getElementById('image');
+            
+            // Seleccionar una imagen aleatoria
+            const randomIndex = Math.floor(Math.random() * imageUrls.length);
+            imageElement.src = imageUrls[randomIndex];
+        });
+    </script>
+
+</body>
+</html>
